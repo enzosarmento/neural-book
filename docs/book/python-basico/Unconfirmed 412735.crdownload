@@ -1,0 +1,306 @@
+---
+weight: 3
+title: "NumPy"
+---
+
+# NumPy – Tutorial Didático
+
+O **NumPy** é a biblioteca fundamental para cálculos numéricos em Python.  
+Ela fornece arrays multidimensionais de alta performance e funções matemáticas otimizadas.  
+Em Engenharia, NumPy é usada para representar **vetores, matrizes**, resolver **sistemas lineares**, fazer **simulações numéricas** e preparar dados para modelos de machine learning.
+
+> **Objetivo deste capítulo:** apresentar os conceitos essenciais do NumPy, com exemplos práticos e aplicações simples de engenharia.
+
+---
+
+## Índice rápido
+- [Instalação e importação](#instalacao-e-importacao)  
+- [Criando arrays](#criando-arrays)  
+- [Sequências numéricas: `arange` vs `linspace`](#sequencias-numericas)  
+- [Aleatoriedade e reprodutibilidade](#aleatoriedade-e-reprodutibilidade)  
+- [Shape, `ndim` e `dtype`](#shape-ndim-e-dtype)  
+- [Indexação e slicing](#indexacao-e-slicing)  
+- [Operações vetorizadas & broadcasting](#operacoes-vetorizadas--broadcasting)  
+- [Álgebra linear básica](#algebra-linear-basica)  
+- [Estatísticas e funções úteis](#estatisticas-e-funcoes-uteis)  
+- [Views vs Copies — cuidado com a memória](#views-vs-copies)  
+- [Boas práticas e desempenho](#boas-praticas-e-desempenho)  
+- [Exemplos de engenharia (rápidos)](#exemplos-de-engenharia-rapidos)  
+- [Exercícios sugeridos](#exercicios-sugeridos)  
+- [Referências rápidas](#referencias-rapidas)
+
+---
+
+## Instalação e importação
+
+Se estiver usando Anaconda: o NumPy já vem instalado. Caso contrário:
+
+```bash
+pip install numpy
+```
+
+Importe assim (forma padrão):
+
+```python
+import numpy as np
+```
+
+---
+
+## Criando arrays
+
+Arrays a partir de listas:
+
+```python
+import numpy as np
+
+a = np.array([1.2, 2.4, 3.5])        # array 1D (float)
+M = np.array([[1, 2], [3, 4]])      # array 2D (inteiros)
+print(a, a.dtype, a.shape)
+print(M, M.dtype, M.shape)
+```
+
+- `dtype` indica o tipo (float64, int64, etc.).  
+- `shape` é uma tupla com as dimensões (ex.: `(3,)` para vetor de 3, `(2,2)` para matriz 2x2).
+
+---
+
+## Sequências numéricas
+
+`np.arange(start, stop, step)` gera uma sequência semelhante a `range()` (o `stop` não é incluído).
+
+```python
+np.arange(0, 1, 0.2)   # [0. , 0.2, 0.4, 0.6, 0.8]
+```
+
+`np.linspace(start, stop, num)` gera `num` pontos igualmente espaçados **incluindo** o limite final (útil para gráficos e discretizações).
+
+```python
+np.linspace(0, 1, 5)   # [0. , 0.25, 0.5 , 0.75, 1. ]
+```
+
+---
+
+## Aleatoriedade e reprodutibilidade
+
+Use a nova API `Generator` para melhores práticas:
+
+```python
+rng = np.random.default_rng(seed=42)
+inteiros = rng.integers(low=50, high=100, size=6)
+reais = rng.random(5)   # uniform [0,1)
+print(inteiros, reais)
+```
+
+> **Dica:** controlar a `seed` (como `seed=42`) garante que experimentos e exemplos sejam reprodutíveis.
+
+---
+
+## Shape, `ndim` e `dtype`
+
+Propriedades básicas:
+
+```python
+x = np.arange(12)
+print(x.shape)    # (12,)
+X = x.reshape(3, 4)
+print(X.shape)    # (3, 4)
+print(X.ndim)     # 2 (número de dimensões)
+print(X.dtype)    # tipo de dado
+```
+
+Transformações úteis:
+
+- `x.reshape(...)` — muda formato (deve manter número de elementos).  
+- `x.flatten()` / `x.ravel()` — achata para 1D (`ravel` pode retornar *view*).  
+- `x.astype(np.float32)` — converte tipo.
+
+---
+
+## Indexação e slicing
+
+Indexação 1D:
+
+```python
+a = np.array([10, 20, 30, 40, 50])
+a[0]     # 10
+a[-1]    # 50
+a[1:4]   # array([20, 30, 40])
+```
+
+Indexação 2D:
+
+```python
+m = np.array([[1,2,3],
+              [4,5,6],
+              [7,8,9]])
+m[0,0]    # 1
+m[1,:]    # linha 1 -> [4,5,6]
+m[:,2]    # coluna 2 -> [3,6,9]
+```
+
+Indexação booleana e por máscara:
+
+```python
+v = np.array([1,2,3,4,5])
+mask = v > 2
+v[mask]   # [3,4,5]
+```
+
+---
+
+## Operações vetorizadas & broadcasting
+
+NumPy aplica operações elemento a elemento de forma vetorizada — muito mais rápido que loops Python puros.
+
+```python
+x = np.array([1,2,3])
+y = np.array([10,20,30])
+x + y    # [11,22,33]
+x * 2    # [2,4,6]
+```
+
+**Broadcasting** permite operar arrays de shapes diferentes quando compatíveis:
+
+```python
+A = np.array([[1,2,3],
+              [4,5,6]])
+b = np.array([10, 20, 30])
+A + b   # adiciona b a cada linha de A (broadcast)
+```
+
+Regras rápidas: alinhe à direita; dimensões iguais ou 1 podem ser estendidas.
+
+---
+
+## Álgebra linear básica
+
+Produto matricial, transposta, determinante, inversa, resolução de sistemas:
+
+```python
+A = np.array([[3, 1],
+              [1, 2]])
+b = np.array([9, 8])
+
+# produto matricial
+C = A @ A   # ou np.dot(A, A)
+
+# resolver A x = b
+x = np.linalg.solve(A, b)
+
+# inversa e determinante (use com cuidado)
+invA = np.linalg.inv(A)
+detA = np.linalg.det(A)
+
+print("x =", x)
+```
+
+> **Nota de engenharia:** usar `np.linalg.solve` é preferível a calcular `inv(A)` e multiplicar, por estabilidade e desempenho.
+
+---
+
+## Funções estatísticas e agregações
+
+```python
+data = np.array([10, 20, 30, 40, 50])
+np.mean(data)     # média
+np.median(data)   # mediana
+np.std(data)      # desvio padrão
+np.min(data), np.max(data)
+np.sum(data)      # soma
+```
+
+Reduções por eixo em arrays multidimensionais:
+
+```python
+M = np.arange(12).reshape(3,4)
+np.mean(M, axis=0)  # média por coluna
+np.sum(M, axis=1)   # soma por linha
+```
+
+---
+
+## Views vs Copies — cuidado com a memória
+
+- `slice` geralmente retorna **view** (não copia dados). Modificar a view altera o original.
+- `copy()` cria uma cópia independente.
+
+Exemplo:
+
+```python
+a = np.arange(6)
+v = a[2:5]     # view provável
+v[0] = 999
+print(a)       # a foi modificado!
+
+b = a[2:5].copy()
+b[0] = -1
+print(a)       # a NÃO é modificado
+```
+
+---
+
+## Boas práticas e desempenho
+
+- Prefira operações vetorizadas; evite loops Python quando possível.  
+- Use tipos adequados (ex.: `float32` quando 64-bit não for necessário) para reduzir memória.  
+- Para geração aleatória, prefira `np.random.default_rng()` em vez de `np.random.*` legado.  
+- Evite `np.concatenate`/`vstack` em laços — acumule em lista e chame uma vez.
+
+---
+
+## Exemplos de engenharia (rápidos)
+
+### 1) Movimento Uniformemente Variado (MUV)
+
+```python
+t = np.linspace(0, 10, 201)     # 0..10s, 201 pontos
+s0, v0, a = 0.0, 5.0, 2.0       # posição inicial, vel. inicial, aceleração
+s = s0 + v0*t + 0.5*a*t**2
+v = v0 + a*t
+```
+
+### 2) Sistema linear simples
+
+```python
+A = np.array([[10, -2, -1],
+              [-2, 11, -3],
+              [-1, -3, 8]], dtype=float)
+b = np.array([7, 5, 3], dtype=float)
+x = np.linalg.solve(A, b)
+print("Solução:", x)
+```
+
+### 3) Ajuste linear rápido (mínimos quadrados)
+
+```python
+x = np.array([0,1,2,3,4])
+y = np.array([0.1, 0.9, 2.1, 3.0, 3.9])
+A = np.vstack([x, np.ones_like(x)]).T
+m, c = np.linalg.lstsq(A, y, rcond=None)[0]
+print("m, c =", m, c)
+```
+
+---
+
+## Exercícios sugeridos
+
+1. Crie uma matriz 10x10 de 0 a 99 e calcule a soma das diagonais.  
+2. No exemplo de MUV, encontre o tempo em que a posição ultrapassa 100 m.  
+3. Monte e resolva um sistema linear 4x4 que represente um balanço de forças.  
+4. Use broadcasting para normalizar colunas de uma matriz.  
+5. Gere 100 amostras de 1000 números aleatórios e calcule a média de cada uma. Compare com a teoria.
+
+---
+
+## Referências rápidas
+
+- Documentação oficial: [numpy.org/doc](https://numpy.org/doc/)  
+- Quickstart: [numpy.org/devdocs/user/quickstart](https://numpy.org/devdocs/user/quickstart.html)
+
+---
+
+## Observações finais
+
+Dominar NumPy torna muito mais eficiente o trabalho com **Pandas**, **SciPy** e frameworks de redes neurais.  
+Este capítulo serve como **fundação** para todo o conteúdo posterior do *NeuralBook*.

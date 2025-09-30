@@ -1,1 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Básico on NeuralBook</title><link>https://enzosarmento.github.io/neural-book/docs/book/python-basico/</link><description>Recent content in Python Básico on NeuralBook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://enzosarmento.github.io/neural-book/docs/book/python-basico/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://enzosarmento.github.io/neural-book/docs/book/python-basico/numpy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://enzosarmento.github.io/neural-book/docs/book/python-basico/numpy/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python Básico on NeuralBook</title><link>https://enzosarmento.github.io/neural-book/docs/book/python-basico/</link><description>Recent content in Python Básico on NeuralBook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://enzosarmento.github.io/neural-book/docs/book/python-basico/index.xml" rel="self" type="application/rss+xml"/><item><title>NumPy</title><link>https://enzosarmento.github.io/neural-book/docs/book/python-basico/numpy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://enzosarmento.github.io/neural-book/docs/book/python-basico/numpy/</guid><description>&lt;h1 id="numpy"&gt;NumPy&lt;a class="anchor" href="#numpy"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;O &lt;strong&gt;NumPy&lt;/strong&gt; é a biblioteca fundamental para cálculos numéricos em Python.&lt;br&gt;
+Ela fornece arrays multidimensionais de alta performance e funções matemáticas otimizadas.&lt;br&gt;
+Em Engenharia, NumPy é usada para representar &lt;strong&gt;vetores, matrizes&lt;/strong&gt;, resolver &lt;strong&gt;sistemas lineares&lt;/strong&gt;, fazer &lt;strong&gt;simulações numéricas&lt;/strong&gt; e preparar dados para modelos de machine learning.&lt;/p&gt;
+&lt;blockquote class='book-hint '&gt;
+&lt;p&gt;&lt;strong&gt;Objetivo deste capítulo:&lt;/strong&gt; apresentar os conceitos essenciais do NumPy, com exemplos práticos.&lt;/p&gt;&lt;/blockquote&gt;&lt;hr&gt;
+&lt;h2 id="índice-rápido"&gt;Índice rápido&lt;a class="anchor" href="#%c3%adndice-r%c3%a1pido"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#criando-arrays"&gt;Criando arrays&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#sequ%c3%aancias-num%c3%a9ricas"&gt;Sequências numéricas: &lt;code&gt;arange&lt;/code&gt; vs &lt;code&gt;linspace&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#aleatoriedade-e-reprodutibilidade"&gt;Aleatoriedade e reprodutibilidade&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#anatomia-de-um-array-shape-ndim-e-dtype"&gt;Shape, &lt;code&gt;ndim&lt;/code&gt; e &lt;code&gt;dtype&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#indexa%c3%a7%c3%a3o-e-fatiamento-slicing-acessando-seus-dados"&gt;Indexação e slicing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#opera%c3%a7%c3%b5es-vetorizadas--broadcasting"&gt;Operações vetorizadas &amp;amp; broadcasting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#%c3%a1lgebra-linear-b%c3%a1sica"&gt;Álgebra linear básica&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#fun%c3%a7%c3%b5es-estat%c3%adsticas-e-agrega%c3%a7%c3%b5es"&gt;Estatísticas e funções úteis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#refer%c3%aancias-r%c3%a1pidas"&gt;Referências rápidas&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="criando-arrays"&gt;Criando arrays&lt;a class="anchor" href="#criando-arrays"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A forma mais comum de criar um array é a partir de uma lista Python.&lt;/p&gt;</description></item></channel></rss>
