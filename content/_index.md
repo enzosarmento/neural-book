@@ -41,3 +41,23 @@ Documentação de bibliotecas para Redes Neurais aplicadas à Engenharia
   Navegue pelos capítulos para aprender desde os **fundamentos de Python** até a construção de **redes neurais com TensorFlow e Keras**, passando por técnicas de análise de dados e machine learning.  
   {{< /card >}}
   {{% /columns %}}
+
+{{% columns %}}
+- {{< card >}}
+  ### Sobre o Projeto
+  O **NeuralBook** faz parte do projeto de ensino  
+  *Integração de Redes Neurais Artificiais à Engenharia:  
+  Um Caminho a partir da Manipulação de Dados com Python*,  
+  vinculado ao **Programa de Iniciação à Docência – PID** da **Universidade Estadual de Santa Cruz - UESC**.
+  {{< /card >}}
+
+- {{< card >}}
+  ### Coordenação
+    - **Prof. Dr. Elilton Rodrigues Edwards** – Departamento de Engenharias e Computação (DEC/UESC)  
+      {{< /card >}}
+
+- {{< card >}}
+  ### Discente
+    - **Enzo Fernandes Sarmento** – Curso de Ciência da Computação (UESC)  
+      {{< /card >}}
+      {{% /columns %}}
