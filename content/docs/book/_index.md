@@ -52,5 +52,5 @@ Este material foi desenvolvido para:
 
 ## Filosofia
 
-Mais que um manual, o NeuralBook é um **ponto de partida** para integrar **Engenharia e Inteligência Artificial**, oferecendo exemplos de código comentados, exercícios práticos e estudos de caso aplicados.
+NeuralBook é um **ponto de partida** para integrar **Engenharia e Inteligência Artificial**, oferecendo exemplos de código comentados, exercícios práticos e estudos de caso aplicados.
 

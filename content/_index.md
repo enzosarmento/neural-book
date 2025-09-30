@@ -6,39 +6,38 @@ layout: landing
 <div class="book-hero">
 
 # NEURAL BOOK {anchor=false}
-Bibliotecas de Redes Neurais para Resolução de Problemas em Engenharia
+Documentação de bibliotecas para Redes Neurais aplicadas à Engenharia
 
-{{<button href="/docs/book">}}Explorar Conteúdo{{</button>}}
+{{<button href="/docs/book">}}Entrar no Livro{{</button>}}
 
 </div>
 
 {{% columns %}}
-- ## O que é o NeuralBook
-  O **NeuralBook** é um guia didático voltado para estudantes e profissionais de Engenharia que desejam aprender a utilizar **Python** e suas principais bibliotecas aplicadas ao **aprendizado de máquina** e às **redes neurais artificiais**.
+- ## Bem-vindo
+  O **NeuralBook** é um projeto educacional desenvolvido para apoiar estudantes e profissionais de Engenharia no contato com as principais bibliotecas de **Python** aplicadas à **Ciência de Dados, Machine Learning e Redes Neurais**.  
+  Nosso objetivo é tornar esses temas complexos acessíveis, didáticos e diretamente conectados à prática da Engenharia.
 
-- ## Objetivo
-  Capacitar engenheiros e discentes a usar ferramentas modernas de **ciência de dados e inteligência artificial** para resolver problemas de Engenharia, por meio da manipulação de dados, modelagem matemática e implementação de redes neurais.
+- ## Como funciona
+  O material está organizado no formato de **livro online interativo**, com explicações, exemplos de código comentados e estudos de caso reais.  
+  O conteúdo pode ser lido do início ao fim ou consultado como documentação técnica durante seus projetos.
   {{% /columns %}}
 
 {{% columns %}}
 - {{< card >}}
-  ## Conteúdo
-    - Fundamentos de Python e bibliotecas básicas (NumPy, Pandas, Matplotlib).
-    - Manipulação e visualização de dados.
-    - Machine Learning com Scikit-learn.
-    - Redes neurais com Keras e TensorFlow.
-    - Aplicações práticas em Engenharia.  
+  ## Por que usar?
+    - Simplifica o aprendizado de bibliotecas como NumPy, Pandas e TensorFlow.
+    - Oferece exemplos aplicados a problemas de Engenharia.
+    - Funciona como guia de estudo e também como documentação de consulta.  
       {{< /card >}}
 
 - {{< card >}}
-  ## Público-Alvo
-    - Estudantes de Engenharia.
-    - Professores em busca de material de apoio.
-    - Profissionais interessados em aplicar **IA e redes neurais** em problemas reais.  
+  ## Diferenciais
+    - Didática acessível para quem não vem da área de programação.
+    - Ênfase em aplicações práticas em Engenharia.
       {{< /card >}}
 
 - {{< card >}}
-  ## Filosofia
-  O NeuralBook é mais que um manual: é um **ponto de partida** para integrar Engenharia e Inteligência Artificial, oferecendo exemplos comentados, exercícios práticos e estudos de caso.  
+  ## Explore
+  Navegue pelos capítulos para aprender desde os **fundamentos de Python** até a construção de **redes neurais com TensorFlow e Keras**, passando por técnicas de análise de dados e machine learning.  
   {{< /card >}}
   {{% /columns %}}
