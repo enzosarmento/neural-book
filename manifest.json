@@ -1,14 +1,14 @@
 {
   "name": "NeuralBook",
   "short_name": "NeuralBook",
-  "start_url": "/neural-book/",
-  "scope": "/neural-book/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/neural-book/favicon.svg",
+      "src": "/favicon.svg",
       "sizes": "512x512"
     }
   ]
