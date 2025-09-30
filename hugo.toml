@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://enzosarmento.github.io/neural-book/'
 languageCode = 'en-us'
 title = 'NeuralBook'
 theme = 'hugo-book'
